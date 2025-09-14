@@ -7,9 +7,9 @@ import os
 import json
 
 email_passwords = {
-    "administratorek@localhost": "admin_password",
+    "username@apple.com": "admin_password",
     "user1@localhost": "user1_password",
-    "user2@localhost": "user2_password"
+    "username@google.com": "user2_password"
 }
 
 class CustomSMTPHandler:
@@ -33,10 +33,18 @@ class CustomSMTPHandler:
             "subject": msg.get('Subject', ''),
         }
         body = msg.get_body(preferencelist=('plain'))
-        if body:
+        #print(body)
+        log_entry["body"] = body.get_content()
+        print(log_entry["body"])
+
+        """
+        if len(body)>0:
+            print("BODY")
             log_entry["body"] = body.get_content()
         else:
+            print("NO BODY")
             log_entry["body"] = None
+        """
 
         attachments = []
         for rcptto in rcpttos:

@@ -1,3 +1,0 @@
-aiosmtpd
-flask
-flask_cors
