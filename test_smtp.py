@@ -13,6 +13,6 @@ Subject: {SUBJECT}
 {BODY}
 """
 
-with smtplib.SMTP("127.0.0.1", 1026) as server:
+with smtplib.SMTP("35.231.167.204", 1026) as server:
     server.sendmail(FROM, TO, message)
 print("Test email sent.")
